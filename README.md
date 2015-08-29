@@ -6,7 +6,7 @@ Old Ipad's and Android devices started to pile up and I asked myself what to do 
 
 This is just a test on how to use JavaFX to handle the UI for OpenHAB, and deploy it to different platform like desktop, iOS and Android.
 
-![Screenshot1](/docs/images/screenshot-desktop.png)
+![Screenshot1](/docs/images/screenshot-desktop1.png)
 
 ## How to build
 To build and deploy for the respective device (iOS and Android) you need their sdk's installed. For mac it's XCode which
