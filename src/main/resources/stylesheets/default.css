@@ -1,0 +1,111 @@
+
+.root {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Verdana";
+    -fx-color: #03BCF2;
+    -fx-background-color: #E7E7E7;
+}
+
+.page-header {
+    -fx-font-size: 20pt;
+    -fx-font-family: "Verdana";
+    -fx-font-weight: 300;
+    -fx-fill: #01AAD5;
+}
+
+/****************************************************************************
+ * Sensors
+ ****************************************************************************/
+.sensor {
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+    -fx-background-color: #9B4F96;
+}
+
+.sensor-top {
+    -fx-font-size: 12px;
+    -fx-font-family: "Verdana";
+    -fx-fill: rgb(255,255,255);
+    -fx-alignment: center;
+    -fx-padding: 10 0 5 0;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 30px;
+    -fx-max-width: 100px;
+}
+
+.sensor-center {
+    -fx-font-size: 34px;
+    -fx-font-family: "Verdana";
+    -fx-font-weight: bold;
+    -fx-fill: rgb(255,255,255);
+    -fx-alignment: center;
+    -fx-padding: 13 5 5 5;
+    -fx-fit-to-height: true;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 60px;
+    -fx-max-width: 100px;
+}
+
+.sensor-bottom {
+    -fx-font-size: 12px;
+    -fx-font-family: "Verdana";
+    -fx-fill: rgb(255,255,255);
+    -fx-alignment: bottom-right;
+    -fx-padding: 10 5 5 5;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 20px;
+    -fx-max-width: 100px;
+}
+
+/****************************************************************************
+ * Light Switches
+ ****************************************************************************/
+.switch {
+    -fx-min-width: 100px;
+    -fx-min-height: 100px;
+    -fx-max-width: 100px;
+    -fx-max-height: 100px;
+}
+
+.switch-on {
+    -fx-background-color: #01AAD5;
+}
+
+.switch-off {
+    -fx-background-color: #B0B0B0;
+}
+
+#vbox {
+    -fx-alignment: center;
+    -fx-pref-width: 100px;
+    -fx-padding: 10 0 5 0;
+}
+
+.switch-title {
+    -fx-font-size: 12px;
+    -fx-font-family: "Verdana";
+    -fx-fill: rgb(255,255,255);
+    -fx-wrap-text: true;
+    -fx-max-width: 90%;
+    -fx-max-height: 30px;
+}
+
+.switch-icon-on {
+    -fx-shape: "M12.75,25.498h5.5v-5.164h-5.5V25.498zM15.5,28.166c1.894,0,2.483-1.027,2.667-1.666h-5.334C13.017,27.139,13.606,28.166,15.5,28.166zM15.5,2.833c-3.866,0-7,3.134-7,7c0,3.859,3.945,4.937,4.223,9.499h1.271c-0.009-0.025-0.024-0.049-0.029-0.078L11.965,8.256c-0.043-0.245,0.099-0.485,0.335-0.563c0.237-0.078,0.494,0.026,0.605,0.25l0.553,1.106l0.553-1.106c0.084-0.17,0.257-0.277,0.446-0.277c0.189,0,0.362,0.107,0.446,0.277l0.553,1.106l0.553-1.106c0.084-0.17,0.257-0.277,0.448-0.277c0.189,0,0.36,0.107,0.446,0.277l0.554,1.106l0.553-1.106c0.111-0.224,0.368-0.329,0.604-0.25s0.377,0.318,0.333,0.563l-1.999,10.998c-0.005,0.029-0.02,0.053-0.029,0.078h1.356c0.278-4.562,4.224-5.639,4.224-9.499C22.5,5.968,19.366,2.833,15.5,2.833zM17.458,10.666c-0.191,0-0.364-0.107-0.446-0.275l-0.554-1.106l-0.553,1.106c-0.086,0.168-0.257,0.275-0.446,0.275c-0.191,0-0.364-0.107-0.449-0.275l-0.553-1.106l-0.553,1.106c-0.084,0.168-0.257,0.275-0.446,0.275c-0.012,0-0.025,0-0.037-0.001l1.454,8.001h1.167l1.454-8.001C17.482,10.666,17.47,10.666,17.458,10.666z";
+    -fx-scale-shape: false;
+    -fx-scale-x: 250%;
+    -fx-scale-y: 220%;
+    -fx-min-height: 60px;
+    -fx-background-color: #FFFFFF;
+}
+
+.switch-icon-off {
+    -fx-shape: "M15.5,2.833c-3.866,0-7,3.134-7,7c0,3.859,3.945,4.937,4.223,9.499h5.553c0.278-4.562,4.224-5.639,4.224-9.499C22.5,5.968,19.366,2.833,15.5,2.833zM15.5,28.166c1.894,0,2.483-1.027,2.667-1.666h-5.334C13.017,27.139,13.606,28.166,15.5,28.166zM12.75,25.498h5.5v-5.164h-5.5V25.498z";
+    -fx-scale-shape: false;
+    -fx-scale-x: 250%;
+    -fx-scale-y: 220%;
+    -fx-min-height: 60px;
+    -fx-background-color: #FFFFFF;
+}
