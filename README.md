@@ -1,4 +1,4 @@
-# openhab-fx
+# openhab-fx [![Build Status](https://travis-ci.org/swehacker/openhab-fx.svg)](https://travis-ci.org/swehacker/openhab-fx) [![Issues](http://img.shields.io/github/issues/swehacker/openhab-fx.svg)]( https://github.com/swehacker/openhab-fx/issues )
 Old Ipad's and Android devices started to pile up and I asked myself what to do with them, so I came up with the idea to
  use them as control interfaces for my home automation system. Since this was a "lazy sunday" project so I did not want
  to spend to much time of hacking Swift and Java for Android and Desktop I decided to test out JavaFX and deploy it to different
