@@ -3,14 +3,14 @@
     -fx-font-size: 16pt;
     -fx-font-family: "Verdana";
     -fx-color: #03BCF2;
-    -fx-background-color: #E7E7E7;
+    -fx-background-color: #242424;
 }
 
 .page-header {
     -fx-font-size: 20pt;
     -fx-font-family: "Verdana";
     -fx-font-weight: 300;
-    -fx-fill: #01AAD5;
+    -fx-fill: #FFFFFF;
 }
 
 /****************************************************************************
@@ -74,7 +74,7 @@
 }
 
 .switch-off {
-    -fx-background-color: #B0B0B0;
+    -fx-background-color: #505050;
 }
 
 #vbox {

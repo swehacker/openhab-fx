@@ -29,6 +29,7 @@ import javafx.application.Application;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -89,23 +90,26 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         // CREATE SCENE
         BorderPane root = new BorderPane();
+        root.getStyleClass().addAll("root");
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
         scrollPane.setContent(root);
         root.setTop(screenController);
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
 
         if ( !IS_DESKTOP) {
-            Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
             scene = new Scene(scrollPane, bounds.getWidth(), bounds.getHeight());
             logger.config("Setting the Screen to " + bounds.getWidth() + "x" + bounds.getHeight());
         } else {
-            scene = new Scene(scrollPane, 1024, 768);
-            logger.config("Setting the Screen to 1024x768");
+            scene = new Scene(scrollPane, 240, bounds.getHeight());
+            primaryStage.setX(bounds.getMaxX() - 240);
+            logger.config("Setting the Screen to 240x" + bounds.getHeight());
         }
 
         if (IS_EMBEDDED || IS_ANDROID) {
             //new ScrollEventSynthesizer(scene);
+            primaryStage.setFullScreen(true);
         }
 
         setStylesheets();
@@ -113,15 +117,14 @@ public class App extends Application {
 
         // START FULL SCREEN IF WANTED
         if (PlatformFeatures.START_FULL_SCREEN) {
-            Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
-            primaryStage.setX(primaryScreenBounds.getMinX());
-            primaryStage.setY(primaryScreenBounds.getMinY());
-            primaryStage.setWidth(primaryScreenBounds.getWidth());
-            primaryStage.setHeight(primaryScreenBounds.getHeight());
-            logger.config("Setting the Screen to " + primaryScreenBounds.getWidth() + "x" + primaryScreenBounds.getHeight());
+            primaryStage.setX(bounds.getMinX());
+            primaryStage.setY(bounds.getMinY());
+            primaryStage.setWidth(bounds.getWidth());
+            primaryStage.setHeight(bounds.getHeight());
+            logger.config("Setting the Screen to " + bounds.getWidth() + "x" + bounds.getHeight());
         }
 
-        primaryStage.setAlwaysOnTop(true);
+        //primaryStage.setAlwaysOnTop(true);
         primaryStage.show();
     }
 
