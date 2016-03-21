@@ -102,9 +102,9 @@ public class App extends Application {
             scene = new Scene(scrollPane, bounds.getWidth(), bounds.getHeight());
             logger.config("Setting the Screen to " + bounds.getWidth() + "x" + bounds.getHeight());
         } else {
-            scene = new Scene(scrollPane, 240, bounds.getHeight());
-            primaryStage.setX(bounds.getMaxX() - 240);
-            logger.config("Setting the Screen to 240x" + bounds.getHeight());
+            scene = new Scene(scrollPane, 230, bounds.getHeight());
+            primaryStage.setX(bounds.getMaxX() - 230);
+            logger.config("Setting the Screen to 230x" + bounds.getHeight());
         }
 
         if (IS_EMBEDDED || IS_ANDROID) {
