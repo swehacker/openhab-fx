@@ -24,7 +24,9 @@
 
 package com.swehacker.openhab.fx.openhab;
 
-import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.media.sse.EventListener;
+import org.glassfish.jersey.media.sse.EventSource;
+import org.glassfish.jersey.media.sse.SseFeature;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -77,10 +79,17 @@ public class OpenHABService {
     }
 
     public OpenHABService(final String ip, final int port) {
-        ClientConfig config = new ClientConfig();
-        client = ClientBuilder.newClient(config).register(ClientResponseLoggingFilter.class);
+        client = ClientBuilder.newBuilder()
+                .register(SseFeature.class)
+                .register(ClientResponseLoggingFilter.class)
+                .build();
         target = client.target(UriBuilder.fromUri("http://" + ip + ":" + port + "/rest").build());
 
+        EventSource eventSource = EventSource.target(target.path("/items")).build();
+        EventListener listener = inboundEvent -> System.out.println(inboundEvent.getName() + "; "
+                + inboundEvent.readData(String.class));
+        eventSource.register(listener, "message-to-client");
+        eventSource.open();
     }
 
     public void toggle(Item item, STATE state) {
@@ -118,11 +127,11 @@ public class OpenHABService {
         DocumentBuilder builder = builderFactory.newDocumentBuilder();
 
         Document document = builder.parse(new ByteArrayInputStream(
-                        target.path("/items")
-                                .request()
-                                .accept(MediaType.APPLICATION_XML)
-                                .get(String.class)
-                                .getBytes(StandardCharsets.UTF_8))
+                target.path("/items")
+                        .request()
+                        .accept(MediaType.APPLICATION_XML)
+                        .get(String.class)
+                        .getBytes(StandardCharsets.UTF_8))
         );
 
         NodeList rootNode = document.getDocumentElement().getChildNodes();
@@ -141,8 +150,8 @@ public class OpenHABService {
     }
 
     private String getLabel(String name) {
-        String label = (String)labels.get(name);
-        if ( label == null ) {
+        String label = (String) labels.get(name);
+        if (label == null) {
             return name;
         }
 

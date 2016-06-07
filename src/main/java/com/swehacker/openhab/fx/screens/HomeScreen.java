@@ -50,9 +50,12 @@ public class HomeScreen implements Screen {
     }
 
     public void init() {
-        try {
-            openHABService = new OpenHABService(SERVER_ADDRESS, SERVER_PORT);
+        openHABService = new OpenHABService(SERVER_ADDRESS, SERVER_PORT);
+        update();
+    }
 
+    private void update() {
+        try {
             for (Item item : openHABService.getSwitches()) {
                 LightSwitch roomSwitch = new LightSwitch();
                 roomSwitch.setName(item.getLabel());
